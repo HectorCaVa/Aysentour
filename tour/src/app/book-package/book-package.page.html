@@ -14,6 +14,16 @@
       picker-format="YYYY-MM-DDTHH:mm" [min]="todayISOString"></ion-datetime>
   </ion-item>
 
+  <!-- Verifica si availableDates contiene fechas -->
+  <ion-list *ngIf="availableDates && availableDates.length > 0">
+    <ion-list-header>
+      Fechas Disponibles
+    </ion-list-header>
+    <ion-item *ngFor="let date of availableDates">
+      {{ date }}
+    </ion-item>
+  </ion-list>
+
   <ion-button expand="block" (click)="confirmBooking()">Confirmar Reserva</ion-button>
   <ion-button expand="block" color="medium" (click)="dismiss()">Cancelar</ion-button>
 </ion-content>

@@ -10,6 +10,7 @@ export class BookPackagePage {
   startDateTime: string = new Date().toISOString();
   packageId: number = 0;
   todayISOString: string = new Date().toISOString();
+  availableDates: string[] = [];
 
   constructor(
     private modalCtrl: ModalController,
@@ -17,6 +18,8 @@ export class BookPackagePage {
     private toastController: ToastController
   ) {
     this.packageId = this.navParams.get('id');
+    this.availableDates = this.navParams.get('availableDates') || [];
+    console.log('Fechas disponibles:', this.availableDates); // Agrega este console.log
   }
 
   async dismiss() {
@@ -35,9 +38,10 @@ export class BookPackagePage {
     }
 
     console.log('Reservando paquete con ID:', this.packageId, 'y fecha y hora de inicio:', this.startDateTime);
-    // Aquí podrías añadir la llamada a un servicio de reservas
 
-    this.dismiss(); // Cierra el modal después de la reserva
+    // Aquí puedes agregar la lógica de reserva
+
+    this.dismiss();
 
     const toast = await this.toastController.create({
       message: 'Tu reserva ha sido confirmada.',

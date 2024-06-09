@@ -19,10 +19,14 @@ export class PackagesPage implements OnInit {
   async openBookingModal(pkg: Packages) {
     const modal = await this.modalController.create({
       component: BookPackagePage,
-      componentProps: {package: pkg}
+      componentProps: {
+        id: pkg.id, // Pasamos el ID del paquete
+        availableDates: pkg.availableDates // Pasamos las fechas disponibles
+      }
     });
     return await modal.present();
   }
+
 
   ngOnInit() {
   }
