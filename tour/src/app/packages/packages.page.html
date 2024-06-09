@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Paquetes turisticos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let pkg of packages">
+      <ion-label>{{pkg.name}}</ion-label>
+      <!-- Agregamos boton para agendar -->
+      <ion-button (click)="openBookingModal(pkg)">
+        Agendar
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
