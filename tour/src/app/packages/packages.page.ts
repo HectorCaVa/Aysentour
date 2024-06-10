@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// importamos los datos de los paquetes turisticos
-import { PACKAGES, Packages } from '../data/packages';
 import { ModalController } from '@ionic/angular';
 import { BookPackagePage } from '../book-package/book-package.page';
+import { Router } from '@angular/router';
+import { PACKAGES, Packages } from '../data/packages';
 
 @Component({
   selector: 'app-packages',
@@ -11,25 +11,20 @@ import { BookPackagePage } from '../book-package/book-package.page';
 })
 export class PackagesPage implements OnInit {
 
-  packages: Packages[] = PACKAGES; // Asignamos paquetes turisticos
+  packages: Packages[] = PACKAGES;
 
-  // servicio proporcionado por Ionic que nos permite crear y controlar ventanas modales
-  constructor(private modalController: ModalController) { }
+  constructor(private modalCtrl: ModalController, private router: Router) { }
+
+  ngOnInit() { }
 
   async openBookingModal(pkg: Packages) {
-    const modal = await this.modalController.create({
+    const modal = await this.modalCtrl.create({
       component: BookPackagePage,
       componentProps: {
-        id: pkg.id, // Pasamos el ID del paquete
-        availableDates: pkg.availableDates // Pasamos las fechas disponibles
+        id: pkg.id,
+        availableDates: pkg.availableDates
       }
     });
     return await modal.present();
   }
-
-
-  ngOnInit() {
-  }
-
-  // Agregar más métodos según sea necesario
 }

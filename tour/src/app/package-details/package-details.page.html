@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Detalles del Paquete</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="package">
+    <ion-card-header>
+      <ion-card-title>{{ package.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ package.description }}</p>
+      <p>Fecha seleccionada: {{ selectedDate }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

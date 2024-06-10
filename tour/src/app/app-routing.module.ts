@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'book-package',
     loadChildren: () => import('./book-package/book-package.module').then(m => m.BookPackagePageModule)
+  },
+  {
+    path: 'package-details/:id', // La ruta incluye el parámetro id
+    loadChildren: () => import('./package-details/package-details.module').then(m => m.PackageDetailsPageModule)
   }
 ];
 

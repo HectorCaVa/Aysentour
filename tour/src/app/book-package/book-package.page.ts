@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavParams, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-package',
@@ -15,8 +16,9 @@ export class BookPackagePage implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private navParams: NavParams,
-    private toastController: ToastController
-  ) {}
+    private toastController: ToastController,
+    private router: Router // Añadimos Router al constructor
+  ) { }
 
   ngOnInit() {
     this.packageId = this.navParams.get('id') || 0;
@@ -25,7 +27,7 @@ export class BookPackagePage implements OnInit {
   }
 
   async dismiss() {
-    this.modalCtrl.dismiss();
+    await this.modalCtrl.dismiss();
   }
 
   async confirmBooking() {
@@ -37,13 +39,16 @@ export class BookPackagePage implements OnInit {
 
     // Lógica de confirmación de reserva
     console.log('Reservando paquete con ID:', this.packageId, 'y fecha y hora de inicio:', this.startDateTime);
-    this.dismiss();
+    await this.dismiss();
     const toast = await this.toastController.create({
       message: 'Tu reserva ha sido confirmada.',
       duration: 2000,
       color: 'success'
     });
     toast.present();
+
+    // Redirigir a la página de detalles del paquete con fecha seleccionada
+    this.router.navigate(['/package-details', this.packageId, { date: selectedDate }]);
   }
 
   async showDateErrorToast() {
@@ -57,7 +62,7 @@ export class BookPackagePage implements OnInit {
 
   setInitialDate() {
     const today = new Date().toISOString().split('T')[0];
-    this.startDateTime = this.availableDates.includes(today) ? today : this.availableDates[0] || '';
+    this.startDateTime = this.availableDates.includes(today) ? today : (this.availableDates[0] || '');
   }
 
   getMinimumDate() {
