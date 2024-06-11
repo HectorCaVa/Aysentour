@@ -1,0 +1,114 @@
+/* Estilos generales de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    /* Ajusta la fuente según tus preferencias */
+    background-color: #f5f5f5;
+    /* Color de fondo */
+}
+
+.container {
+    width: 80%;
+    /* Ajusta el ancho del contenedor */
+    margin: 0 auto;
+    /* Centra el contenedor */
+    padding: 20px;
+    background-color: #fff;
+    /* Color de fondo del contenedor */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Sombra para el contenedor */
+}
+
+h1 {
+    text-align: center;
+    /* Centra el título */
+    margin-bottom: 20px;
+}
+
+/* Estilos para el carrusel de imágenes */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.slide {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+.slide img {
+    width: 100%;
+}
+
+/* Información del paquete */
+.package-info {
+    margin-top: 30px;
+}
+
+.package-info h2 {
+    font-size: 20px;
+    /* Ajusta el tamaño de la fuente */
+    margin-bottom: 10px;
+}
+
+.package-info p {
+    font-size: 16px;
+    /* Ajusta el tamaño de la fuente */
+    line-height: 1.5;
+    /* Ajusta el interlineado */
+}
+
+.package-info ion-icon {
+    margin-right: 10px;
+    /* Espacio entre el icono y el texto */
+}
+
+.package-info ion-item {
+    border: 1px solid #ddd;
+    /* Borde para los elementos de la lista */
+    padding: 10px;
+    /* Ajuste del padding */
+    margin-bottom: 10px;
+    /* Espacio entre elementos */
+}
+
+.package-info ion-item:last-child {
+    margin-bottom: 0;
+    /* Elimina el margen inferior en el último elemento */
+}
+
+.package-info ion-item ion-label {
+    font-weight: bold;
+    /* Texto en negrita para las etiquetas */
+}
+
+.package-info ion-item ion-note {
+    font-weight: normal;
+    /* Texto normal para las notas */
+}
+
+.package-info ion-item ion-note::before {
+    content: '$';
+    /* Símbolo de moneda antes del valor */
+}
+
+/* Alquiler de vehículo */
+.alquiler-vehiculo {
+    margin-top: 20px;
+}
+
+.alquiler-vehiculo ion-toggle {
+    /* Estilos para el toggle de alquiler */
+    margin-right: 10px;
+}
+
+/* Botones */
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.buttons ion-button {
+    margin: 10px;
+    /* Espacio entre botones */
+}

@@ -18,7 +18,12 @@ const routes: Routes = [
   {
     path: 'package-details/:id', // La ruta incluye el parámetro id
     loadChildren: () => import('./package-details/package-details.module').then(m => m.PackageDetailsPageModule)
+  },
+  {
+    path: 'detalles-pack/:id',
+    loadChildren: () => import('./detalles-pack/detalles-pack.module').then(m => m.DetallesPackPageModule)
   }
+
 ];
 
 @NgModule({

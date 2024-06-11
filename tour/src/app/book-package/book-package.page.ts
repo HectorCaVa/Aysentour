@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams, ToastController } from '@ionic/angular';
+import { Component, Input, OnInit } from '@angular/core';
+import { ModalController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Packages } from '../data/packages';
 
 @Component({
   selector: 'app-book-package',
@@ -8,26 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./book-package.page.scss'],
 })
 export class BookPackagePage implements OnInit {
-  startDateTime: string = ''; // Inicializamos la propiedad startDateTime
-  packageId: number = 0; // Inicializamos la propiedad packageId
-  availableDates: string[] = [];
-  todayISOString: string = new Date().toISOString();
+  @Input() packageId: number = 0;
+  @Input() availableDates: string[] = [];
+  @Input() package: Packages | undefined;
+  startDateTime: string = '';
 
   constructor(
     private modalCtrl: ModalController,
-    private navParams: NavParams,
     private toastController: ToastController,
-    private router: Router // Añadimos Router al constructor
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.packageId = this.navParams.get('id') || 0;
-    this.availableDates = this.navParams.get('availableDates') || [];
     this.setInitialDate();
   }
 
   async dismiss() {
-    await this.modalCtrl.dismiss();
+    this.modalCtrl.dismiss();
   }
 
   async confirmBooking() {
@@ -37,9 +35,14 @@ export class BookPackagePage implements OnInit {
       return;
     }
 
-    // Lógica de confirmación de reserva
     console.log('Reservando paquete con ID:', this.packageId, 'y fecha y hora de inicio:', this.startDateTime);
-    await this.dismiss();
+
+    // Actualiza el objeto package con la fecha seleccionada
+    if (this.package) {
+      this.package.startDate = selectedDate;
+    }
+
+    this.dismiss();
     const toast = await this.toastController.create({
       message: 'Tu reserva ha sido confirmada.',
       duration: 2000,
@@ -47,8 +50,8 @@ export class BookPackagePage implements OnInit {
     });
     toast.present();
 
-    // Redirigir a la página de detalles del paquete con fecha seleccionada
-    this.router.navigate(['/package-details', this.packageId, { date: selectedDate }]);
+    // Navegar al detalle del paquete con parámetros
+    this.router.navigate(['/package-details', this.packageId]);
   }
 
   async showDateErrorToast() {
@@ -62,11 +65,11 @@ export class BookPackagePage implements OnInit {
 
   setInitialDate() {
     const today = new Date().toISOString().split('T')[0];
-    this.startDateTime = this.availableDates.includes(today) ? today : (this.availableDates[0] || '');
+    this.startDateTime = this.availableDates.includes(today) ? today : this.availableDates[0] || '';
   }
 
   getMinimumDate() {
-    return this.availableDates.length > 0 ? this.availableDates[0] : this.todayISOString;
+    return this.availableDates.length > 0 ? this.availableDates[0] : '';
   }
 
   getMaximumDate() {

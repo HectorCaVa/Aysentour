@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/packages"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle del Paquete</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="package-info">
+    <ion-card-content>
+      <h2><ion-icon name="bed-outline"></ion-icon> The Patagonian Lodge</h2>
+      <p><ion-icon name="star-outline"></ion-icon> 8.6 - Muy bueno</p>
+      <p><ion-icon name="location-outline"></ion-icon> A 1,55 km del centro de Coyhaique</p>
+      <p><ion-icon name="cash-outline"></ion-icon> Ahorras $177.588</p>
+      <p><ion-icon name="airplane-outline"></ion-icon> Vuelo + Alojamiento</p>
+      <p>Estancia de 7 días</p>
+
+
+      <ion-item>
+        <ion-label>Precio final por persona</ion-label>
+        <ion-note slot="end">{{ costoTotalPorPersona() | currency:'USD':'':'1.0-0' }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="cash-outline"></ion-icon>
+        <ion-label>Final 2 personas</ion-label>
+        <ion-note slot="end">{{ costoTotalPor2Persona() | currency:'USD':'':'1.0-0' }}</ion-note>
+      </ion-item>
+      <ion-item *ngIf="alquilarVehiculo">
+        <ion-icon slot="start" name="car-outline"></ion-icon>
+        <ion-label>Costo adicional por alquiler de vehículo (7 días)</ion-label>
+        <ion-note slot="end">{{ 3000 * 7 | currency:'USD':'':'1.0-0' }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Alquilar Vehículo</ion-label>
+        <ion-toggle [(ngModel)]="alquilarVehiculo"></ion-toggle>
+        <ion-label>Costo adicional: $3000 por día</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon slot="start" name="card-outline"></ion-icon>
+        <ion-label>Incluye impuestos, tasas y cargos</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="package-info">
+
+    <h2>Imágenes del paquete</h2>
+    <div class="carousel">
+      <div class="slide" *ngFor="let image of images">
+        <img [src]="image" alt="Imagen del paquete">
+      </div>
+    </div>
+  </ion-card>
+</ion-content>

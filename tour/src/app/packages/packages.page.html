@@ -8,7 +8,13 @@
   <ion-list>
     <ion-item *ngFor="let pkg of packages">
       <ion-label>{{ pkg.name }}</ion-label>
-      <ion-button (click)="openBookingModal(pkg)">
+      <!-- Botón para redirigir a la página detallespack -->
+      <!-- Botón Detalles -->
+      <ion-button color="primary" (click)="goToPackageDetails(pkg.id)">
+        Detalles
+      </ion-button>
+      <!-- Botón Agendar -->
+      <ion-button color="secondary" (click)="openBookingModal(pkg)">
         Agendar
       </ion-button>
     </ion-item>

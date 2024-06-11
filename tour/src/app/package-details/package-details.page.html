@@ -1,9 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button (click)="goBack()">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
+      <ion-back-button defaultHref="/packages"></ion-back-button>
     </ion-buttons>
     <ion-title>Detalles del Paquete</ion-title>
   </ion-toolbar>
@@ -11,12 +9,17 @@
 
 <ion-content [fullscreen]="true">
   <ion-card *ngIf="package">
+    <!-- Aquí usamos la primera imagen del arreglo images -->
+    <ion-img [src]="images[0]" alt="Imagen 1 del paquete" class="package-image"></ion-img>
     <ion-card-header>
       <ion-card-title>{{ package.name }}</ion-card-title>
+      <ion-card-subtitle>{{ package.location }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
       <p>{{ package.description }}</p>
-      <p>Fecha seleccionada: {{ selectedDate }}</p>
+      <p><strong>Duración:</strong> {{ package.duration }}</p>
+      <p><strong>Precio:</strong> ${{ package.price }}</p>
+      <p><strong>Fecha seleccionada:</strong> {{ package.startDate }}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>
