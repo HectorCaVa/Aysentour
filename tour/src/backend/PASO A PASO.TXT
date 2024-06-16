@@ -1,0 +1,23 @@
+1)AQUI EN LA CARPETA BACKEND DEBES CREAR TU SERVICIO, AQUI DEFINES LA LOGICA DEL FIREBASE Y LOS METODOS,
+Y LOS DATOS QUE VAS A RESCATAR O INGRESAR, DESPUES EN EL .TS DEL FRONTEND EN ESTE CASO HOME.TS,
+LLAMAS AL SERVICIO Y LO INYECTAS, y los metodos que usaras.
+
+
+
+(FRONTEND) #registro de usuarios
+
+-HOME.HTML
+-HOME.CSS
+-HOME.TS = logica del front, aqui llamaremos al SERVICIO logica-registro
+
+
+(BACKEND) #logica de registro
+
+-firebase-config.ts = la conexion a la base de datos
+-logica-registro.ts = aqui definimos las funciones y los metodos a usar de firebase
+
+
+q
+
+POSDATA:
+CREO QUE SOY TERRIBLE PARA EXPLICAR XD Y CON FALTAS DE ORTOGRAFICAS. 

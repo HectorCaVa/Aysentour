@@ -1,0 +1,212 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .tour-description {
+    margin-bottom: 20px;
+    text-align: center;
+
+    img {
+      width: 90%;
+      max-width: 90%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.5;
+    }
+  }
+
+  .form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // Alinear los elementos en la fila
+    margin-bottom: 20px;
+  
+    // Ajustar el ancho de cada elemento dentro de la fila
+    ion-item {
+      flex: 1; // Ocupar el espacio disponible de manera equitativa
+      margin-right: 10px; // Espacio entre los elementos
+    }
+  }
+  
+  .additional-info {
+    margin-bottom: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  
+    .info-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    img {
+      max-width: 50%;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+  
+    .info-text {
+      flex: 1;
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+  
+    p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+  }
+  
+
+  .details-section {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+
+    h2 {
+      font-size: 1.8rem;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 5px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      ion-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .image-gallery {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .image-item {
+      margin-right: 10px;
+
+      img {
+        width: 100px; /* Ajusta según necesites */
+        height: 100px; /* Ajusta según necesites */
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  ion-button {
+    margin-top: 20px;
+    font-size: 1rem;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+    transition: background 0.3s;
+
+    &:hover {
+      background: #0056b3;
+    }
+  }
+}
+.interactive-container {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+}
+ion-icon.blue-icon {
+  color: #007bff;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+
+.details-section {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+
+  h2 {
+    font-size: 1.8rem;
+    color: #007bff;
+    margin-bottom: 10px;
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px 0;
+
+    ion-icon {
+      margin-right: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+  }
+}
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  .image-item {
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    img {
+      width: 100px; /* Ajusta según necesites */
+      height: 100px; /* Ajusta según necesites */
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+}
+ion-toolbar {
+  .header-logo {
+    max-width: 40px; // Ajusta el tamaño máximo del logo según tus necesidades
+    height: auto;
+  }
+}
