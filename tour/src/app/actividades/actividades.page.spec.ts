@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { GeneralSearchPage } from './general-search.page';
+import { ActividadesPage } from './actividades.page';
 
-describe('GeneralSearchPage', () => {
-  let component: GeneralSearchPage;
-  let fixture: ComponentFixture<GeneralSearchPage>;
+describe('ActividadesPage', () => {
+  let component: ActividadesPage;
+  let fixture: ComponentFixture<ActividadesPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GeneralSearchPage);
+    fixture = TestBed.createComponent(ActividadesPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

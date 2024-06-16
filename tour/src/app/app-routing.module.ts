@@ -32,14 +32,12 @@ const routes: Routes = [
     path: 'reservation-details/:username',
     loadChildren: () => import('./reservation-details/reservation-details.module').then( m => m.ReservationDetailsPageModule)
   },
+
   {
-    path: 'category-search',
-    loadChildren: () => import('./category-search/category-search.module').then( m => m.CategorySearchPageModule)
+    path: 'actividades',
+    loadChildren: () => import('./actividades/actividades.module').then( m => m.ActividadesPageModule)
   },
-  {
-    path: 'general-search',
-    loadChildren: () => import('./general-search/general-search.module').then( m => m.GeneralSearchPageModule)
-  },
+
 
 
 ];

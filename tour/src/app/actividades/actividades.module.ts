@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { GeneralSearchPageRoutingModule } from './general-search-routing.module';
+import { ActividadesPageRoutingModule } from './actividades-routing.module';
 
-import { GeneralSearchPage } from './general-search.page';
+import { ActividadesPage } from './actividades.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    GeneralSearchPageRoutingModule
+    ActividadesPageRoutingModule
   ],
-  declarations: [GeneralSearchPage]
+  declarations: [ActividadesPage]
 })
-export class GeneralSearchPageModule {}
+export class ActividadesPageModule {}
