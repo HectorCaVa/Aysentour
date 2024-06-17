@@ -1,0 +1,145 @@
+/* styles.css (o tu archivo de estilos global) */
+
+ion-content {
+    --ion-background-color: #071e2c;
+    /* Color de fondo del contenido */
+}
+
+ion-toolbar {
+    --background: #071d33;
+    /* Color de fondo de la barra de herramientas */
+    --color: #fff;
+    /* Color del texto en la barra de herramientas */
+}
+
+.category-select {
+    width: 100%;
+    /* Ancho completo para el select */
+    margin-top: 12px;
+    /* Margen superior para separar del header */
+    margin-bottom: 16px;
+    /* Espacio inferior */
+}
+
+.category-select .select-icon {
+    color: #041f3a;
+    /* Color del ícono de la categoría */
+}
+
+.searchbar {
+    --background: #333;
+    /* Color de fondo oscuro para la barra de búsqueda */
+    --placeholder-color: #aaa;
+    /* Color del placeholder */
+    --searchbar-input-background: #333;
+    /* Color de fondo oscuro del input de búsqueda */
+    --searchbar-input-color: #fff;
+    /* Color del texto del input de búsqueda */
+    --searchbar-input-border-color: transparent;
+    /* Borde transparente */
+    --searchbar-input-border-radius: 20px;
+    /* Bordes redondeados */
+    margin-bottom: 16px;
+    /* Espacio inferior */
+    padding: 4px;
+    /* Ajuste de padding general */
+}
+
+.searchbar-input {
+    border-radius: 20px;
+    /* Bordes redondeados para el input */
+    background-color: #333;
+    /* Color de fondo oscuro del input */
+    color: #fff;
+    /* Color del texto */
+    border: 1px solid #666;
+    /* Borde del input */
+    box-shadow: none;
+    /* Sin sombra */
+    padding-left: 16px;
+    /* Espaciado interno izquierdo */
+}
+
+.place-item {
+    border-radius: 8px;
+    /* Bordes redondeados para los items */
+    margin-bottom: 12px;
+    /* Espacio inferior entre items */
+    background-color: #fff;
+    /* Color de fondo de los items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    transition: transform 0.3s ease-in-out;
+    /* Transición al hacer hover */
+}
+
+.place-item:hover {
+    transform: translateY(-3px);
+    /* Efecto de levantamiento al hacer hover */
+}
+
+.place-item ion-avatar {
+    width: 80px;
+    /* Tamaño del avatar */
+    height: 80px;
+}
+
+.place-item ion-avatar img {
+    width: 100%;
+    /* Ajustar la imagen al tamaño del avatar */
+    height: 100%;
+    object-fit: cover;
+    /* Ajuste para cubrir el contenedor sin deformar la imagen */
+    border-radius: 50%;
+    /* Borde redondeado */
+}
+
+.place-item ion-label {
+    padding: 12px;
+    /* Espaciado interno */
+}
+
+.place-item h2 {
+    font-size: 18px;
+    /* Tamaño del título */
+    margin-bottom: 6px;
+    /* Espacio inferior */
+}
+
+.place-item p {
+    font-size: 14px;
+    /* Tamaño del texto */
+    color: #666;
+    /* Color del texto */
+    margin-bottom: 4px;
+    /* Espacio inferior */
+}
+
+.filter-button {
+    margin-left: 10px;
+    /* Espacio a la izquierda del botón */
+    color: #fff;
+    /* Color del texto del botón */
+    background-color: #1976d2;
+    /* Color de fondo del botón */
+    border-radius: 20px;
+    /* Bordes redondeados */
+    padding: 6px 12px;
+    /* Espaciado interno del botón */
+    font-size: 14px;
+    /* Tamaño de fuente del botón */
+    transition: background-color 0.3s ease;
+    /* Transición de color de fondo */
+}
+
+.filter-button:hover {
+    background-color: #1565c0;
+    /* Cambio de color al hacer hover */
+}
+
+@media (min-width: 768px) {
+    .place-item {
+        margin-bottom: 16px;
+        /* Espacio inferior en pantallas grandes */
+    }
+}

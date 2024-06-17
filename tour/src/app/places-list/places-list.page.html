@@ -10,18 +10,25 @@
 <ion-content [fullscreen]="true">
   <ion-toolbar>
     <ion-select placeholder="Selecciona una categoría" [(ngModel)]="selectedCategory"
-      (ionChange)="getPlacesByCategory(selectedCategory)">
+      (ionChange)="getPlacesByCategory(selectedCategory)" class="category-select">
       <ion-select-option *ngFor="let category of categories" [value]="category">{{ category }}</ion-select-option>
     </ion-select>
 
-    <ion-button (click)="resetFilter()" color="medium" size="small" *ngIf="selectedCategory">
+    <ion-button (click)="resetFilter()" color="medium" size="small" *ngIf="selectedCategory" class="filter-button">
       <ion-icon name="close-circle-outline"></ion-icon>
       Limpiar filtro
     </ion-button>
   </ion-toolbar>
 
+  <!-- Campo de búsqueda -->
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterPlaces()" placeholder="Buscar por nombre o ubicación"
+    class="searchbar"></ion-searchbar>
+
   <ion-list>
-    <ion-item *ngFor="let place of places">
+    <ion-item *ngFor="let place of filteredPlaces" class="place-item">
+      <ion-avatar slot="start">
+        <img [src]="getImagePath(place.nombre)" alt="Imagen de {{ place.nombre }}">
+      </ion-avatar>
       <ion-label>
         <h2>{{ place.nombre }}</h2>
         <p>Ubicación: {{ place.ubicacion }}</p>
