@@ -30,16 +30,21 @@ const routes: Routes = [
   },
   {
     path: 'reservation-details/:username',
-    loadChildren: () => import('./reservation-details/reservation-details.module').then( m => m.ReservationDetailsPageModule)
+    loadChildren: () => import('./reservation-details/reservation-details.module').then(m => m.ReservationDetailsPageModule)
   },
   {
     path: 'category-search',
-    loadChildren: () => import('./category-search/category-search.module').then( m => m.CategorySearchPageModule)
+    loadChildren: () => import('./category-search/category-search.module').then(m => m.CategorySearchPageModule)
   },
   {
     path: 'general-search',
-    loadChildren: () => import('./general-search/general-search.module').then( m => m.GeneralSearchPageModule)
+    loadChildren: () => import('./general-search/general-search.module').then(m => m.GeneralSearchPageModule)
   },
+  {
+    path: 'places-list',
+    loadChildren: () => import('./places-list/places-list.module').then(m => m.PlacesListPageModule)
+  },
+
 
 
 ];
@@ -49,4 +54,5 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
