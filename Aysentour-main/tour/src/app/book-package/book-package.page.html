@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agendar Paquete</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item>
+    <ion-label position="stacked">Fecha y Hora de Inicio</ion-label>
+    <ion-datetime [(ngModel)]="startDateTime" presentation="date" display-format="DD MMM YYYY"
+      picker-format="YYYY-MM-DD" [min]="getMinimumDate()" [max]="getMaximumDate()">
+    </ion-datetime>
+  </ion-item>
+
+  <ion-list *ngIf="availableDates && availableDates.length > 0">
+    <ion-list-header>
+      Fechas Disponibles
+    </ion-list-header>
+    <ion-item *ngFor="let date of availableDates">
+      {{ date }}
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="confirmBooking()">Confirmar Reserva</ion-button>
+  <ion-button expand="block" color="medium" (click)="dismiss()">Cancelar</ion-button>
+</ion-content>

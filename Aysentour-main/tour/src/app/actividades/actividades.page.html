@@ -1,0 +1,23 @@
+<!-- src/app/actividades/actividades.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actividades</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let categoria of categorias | keyvalue" (click)="selectCategoria(categoria.key)">
+      {{ categoria.key | titlecase }}
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="selectedCategoria">
+    <h2>{{ selectedCategoria | titlecase }}</h2>
+    <ion-list>
+      <ion-item *ngFor="let actividad of actividades">
+        {{ actividad.nombre }}
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,38 @@
+<!-- package.page.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Listado de Paquetes Turísticos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6" *ngFor="let package of packages">
+        <ion-card button (click)="viewDetails(package.id)" class="interactive-card">
+          <ion-card-header>
+            <ion-card-title>{{ package.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ package.description }}</p>
+            <ion-button expand="block" fill="solid" color="primary" size="small" (click)="viewDetails(package.id)">
+              Ver detalles del tour
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Botón para ir a buscar lugares de interés -->
+  <ion-button expand="block" fill="outline" color="secondary" routerLink="/places-list">
+    Buscar Lugares de Interés
+  </ion-button>
+
+  <!-- Botón para ir a la ruta de los autobuses -->
+  <ion-button expand="block" fill="outline" color="secondary" routerLink="/route-map">
+    Ver Ruta de Autobuses
+  </ion-button>
+</ion-content>
+

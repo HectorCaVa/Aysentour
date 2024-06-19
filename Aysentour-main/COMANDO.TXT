@@ -1,0 +1,14 @@
+1) INICIAR EL SERVIDOR EN AYSEN-APP = ionic serve 
+
+2) INSTALAR ANGULAR/FIREBASE =  npm install firebase @angular/fire --save
+
+3) SI LES SALE ERROR AL INICIAR ELS SERVER = firebase init
+
+4)EN CASO DE QUE AL MOMENTO DE INCIARLO PIDA LOGEARSE = firebase login
+
+5) BASE DE DATOS DEL PROYECTO = https://concha-de-sus-mares-default-rtdb.firebaseio.com/
+
+6) POR AHORA TENGO SOLO VALIDACIONES EN EL FRONTEND, ME FALTA HACERLE SERVICIOS EN EL BACKEND 
+
+__________________________________________________________________________________________________
+

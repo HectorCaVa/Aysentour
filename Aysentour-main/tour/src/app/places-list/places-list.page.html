@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/package"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Listado de Lugares</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-select placeholder="Selecciona una categoría" [(ngModel)]="selectedCategory"
+      (ionChange)="getPlacesByCategory(selectedCategory)">
+      <ion-select-option *ngFor="let category of categories" [value]="category">{{ category }}</ion-select-option>
+    </ion-select>
+
+    <ion-button (click)="resetFilter()" color="medium" size="small" *ngIf="selectedCategory">
+      <ion-icon name="close-circle-outline"></ion-icon>
+      Limpiar filtro
+    </ion-button>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item *ngFor="let place of places">
+      <ion-label>
+        <h2>{{ place.nombre }}</h2>
+        <p>Ubicación: {{ place.ubicacion }}</p>
+        <p>Horario: {{ place.horarioApertura }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

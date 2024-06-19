@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/package"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalles de Reservas - Usuario: {{ username }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let reservation of reservations">
+      <ion-label>
+        <h2>{{ reservation.packageId }}</h2>
+        <p>Nombre de Usuario: {{ reservation.username }}</p>
+        <p>Inicio: {{ reservation.startDate | date: 'dd/MM/yyyy' }}</p>
+        <p>Fin: {{ reservation.endDate | date: 'dd/MM/yyyy' }}</p>
+        <p>Cantidad de Personas: {{ reservation.numberOfPeople }}</p>
+        <p>Precio Total: {{ reservation.totalPrice | currency }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
