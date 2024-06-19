@@ -47,7 +47,16 @@ const routes: Routes = [
     loadChildren: () => import('./places-list/places-list.module').then(m => m.PlacesListPageModule)
   },
 
+  {
+    path: 'pay',
+    loadChildren: () => import('./places-list/places-list.module').then(m => m.PlacesListPageModule)
 
+  },
+  {
+    path: 'pago',
+    loadChildren: () => import('./pago/pago.module').then(m => m.PagoPageModule)
+
+  },
 
 
 ];

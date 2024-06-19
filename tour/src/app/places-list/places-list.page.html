@@ -4,7 +4,9 @@
       <ion-back-button defaultHref="/package"></ion-back-button>
     </ion-buttons>
     <ion-title>Listado de Lugares</ion-title>
+   
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -14,10 +16,13 @@
       <ion-select-option *ngFor="let category of categories" [value]="category">{{ category }}</ion-select-option>
     </ion-select>
 
+ 
+
     <ion-button (click)="resetFilter()" color="medium" size="small" *ngIf="selectedCategory" class="filter-button">
       <ion-icon name="close-circle-outline"></ion-icon>
       Limpiar filtro
     </ion-button>
+
   </ion-toolbar>
 
   <!-- Campo de búsqueda -->

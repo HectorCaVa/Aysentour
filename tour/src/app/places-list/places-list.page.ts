@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaceService } from 'src/backend/place.service'; // Ajusta la ruta según tu estructura de proyecto
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-places-list',
@@ -14,7 +15,7 @@ export class PlacesListPage implements OnInit {
   selectedCategory: string = '';
   searchTerm: string = '';
 
-  constructor(private placeService: PlaceService) { }
+  constructor(private placeService: PlaceService,private router: Router) { }
 
   ngOnInit() {
     this.getAllPlaces();
@@ -28,6 +29,12 @@ export class PlacesListPage implements OnInit {
       this.filteredPlaces = this.places;
       console.log('Lugares después de obtener todos:', this.places); // Verifica los lugares después de obtener todos
     } catch (error) {
+      console.error('Error al obtener todos los lugares:', error);
+    }
+  }
+  async pagar() {
+    try {this.router.navigateByUrl('/pago');
+      } catch (error) {
       console.error('Error al obtener todos los lugares:', error);
     }
   }

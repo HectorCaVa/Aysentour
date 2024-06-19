@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pago</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label position="stacked">Orden de Compra (buy_order)</ion-label>
+    <ion-input type="text" [(ngModel)]="buy_order"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">ID de Sesión (session_id)</ion-label>
+    <ion-input type="text" [(ngModel)]="session_id"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Monto (amount)</ion-label>
+    <ion-input type="number" [(ngModel)]="amount"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">URL de Retorno (return_url)</ion-label>
+    <ion-input type="text" [(ngModel)]="return_url"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="CrearToken()">Crear Token</ion-button>
+
+</ion-content>
+
