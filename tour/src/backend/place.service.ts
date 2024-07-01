@@ -12,6 +12,7 @@ export class PlaceService {
   constructor() { }
 
   // Metodo para listar todo
+  
   async getPlaces() {
     const dbRef = ref(this.db);
     const snapshot = await get(child(dbRef, 'actividades/categorias'));

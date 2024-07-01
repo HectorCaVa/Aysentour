@@ -1,0 +1,105 @@
+
+.container {
+  background-image: url('https://th.bing.com/th/id/R.4f210dad1332838d66d11840fde00400?rik=6h5jarwfaIPLlA&riu=http%3a%2f%2fmarient.org%2fevent%2fimage%2fphoto06.jpg&ehk=qdROfoj0Bhjl1gqegTJmzOddjZr17bj3dq3wFuhlQkQ%3d&risl=&pid=ImgRaw&r=0');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.registration-box {
+  background-color: rgba(11, 173, 146, 0.5);
+  padding: 40px; 
+  margin: 20px; 
+  border-radius: 10px;
+  border: 2px solid #085dbe;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.registration-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background-color: #0c6911;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+.imagen-horizontal {
+  width: 100%;
+  height: 40px;
+  object-fit: cover;
+}
+.titulo-mar {
+  border-bottom: 2px solid #007bff; 
+  padding-bottom: 10px; 
+}
+.titulo-mar {
+  font-family: 'Lucida Handwriting', cursive; 
+}
+
+
+
+
+
+
+
+
+
+.container {
+  background-image: url('https://media.istockphoto.com/id/1136362181/es/foto/paisaje-del-parque-nacional-de-pumalin-en-la-patagonia-chilena-con-el-volc%C3%A1n-michinmahiuda-en.jpg?s=612x612&w=0&k=20&c=MjBIBVij4p67s5Kg385G9oBf1Xchg3KNQ3yp4bfkKj4=');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: oceanAnimation 10s infinite linear;
+}
+
+@keyframes oceanAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.center-avatar {
+  display: block;
+  margin: 0 auto;
+}
