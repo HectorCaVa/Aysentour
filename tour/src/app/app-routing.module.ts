@@ -32,16 +32,6 @@ const routes: Routes = [
     path: 'reservation-details/:username',
     loadChildren: () => import('./reservation-details/reservation-details.module').then(m => m.ReservationDetailsPageModule)
   },
-
-  {
-
-    path: 'category-search',
-    loadChildren: () => import('./category-search/category-search.module').then(m => m.CategorySearchPageModule)
-  },
-  {
-    path: 'general-search',
-    loadChildren: () => import('./general-search/general-search.module').then(m => m.GeneralSearchPageModule)
-  },
   {
     path: 'places-list',
     loadChildren: () => import('./places-list/places-list.module').then(m => m.PlacesListPageModule)
