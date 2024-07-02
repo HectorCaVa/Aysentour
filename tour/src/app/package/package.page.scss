@@ -1,103 +1,68 @@
-.header-with-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
+/* styles.css (o tu archivo de estilos global) */
 
-  .custom-toolbar {
-    --background: rgba(51, 51, 201, 0.975);
-    --color: white;
-  }
-  ion-toolbar {
-    .header-logo {
-      max-width: 40px; // Ajusta el tamaño máximo del logo según tus necesidades
-      height: auto;
-    }
-  }
- 
-  
-  .package-card {
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para las tarjetas */
-  }
-  
-  .header-logo {
-    max-height: 40px; /* Ajustar tamaño máximo del logo en el encabezado */
-  }
-  
-  .header-title {
-    font-size: 1.5rem; /* Tamaño de fuente más grande para el título */
-  }
-.custom-background {
-  --ion-background-color: #b1c3d1; /* Color de fondo azul claro */
+ion-content {
+  --ion-background-color: #071e2c;
+  /* Color de fondo del contenido */
+}
+
+ion-toolbar {
+  --background: #1976d2;
+  /* Color de fondo de la barra de herramientas */
+  --color: #fff;
+  /* Color del texto en la barra de herramientas */
 }
 
 .interactive-card {
-  background-color: #ffffff; /* Fondo blanco */
-  margin: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para las tarjetas */
-  transition: transform 0.3s ease-out; /* Transición suave al hacer hover */
+  border-radius: 10px;
+  /* Bordes redondeados para las tarjetas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Transiciones suaves */
+  margin-bottom: 16px;
+  /* Espacio inferior entre tarjetas */
+  background-color: #fff;
+  /* Fondo blanco para las tarjetas */
 }
 
 .interactive-card:hover {
-  transform: translateY(-5px); /* Efecto de levantamiento al hacer hover */
+  transform: translateY(-5px);
+  /* Efecto de levantamiento al hacer hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  /* Aumentar sombra al hacer hover */
 }
 
-
-.header-icon {
-  font-size: 2rem; /* Tamaño del ícono en el encabezado */
-}
-
-.header-title {
-  font-size: 1.5rem; /* Tamaño de fuente más grande para el título */
-}
-  
-.centered-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px; /* Ajusta según sea necesario para separar la imagen de los paquetes */
-}
-
-.centered-image-inner {
-  max-width: 80%; /* Ajusta el ancho máximo de la imagen según tus necesidades */
-  height: auto;
-  object-fit: contain; /* Ajusta la forma en que la imagen se ajusta dentro de su contenedor */
-}
-.legend-title {
-  font-size: 24px;
+.interactive-card ion-card-title {
+  font-size: 18px;
+  /* Tamaño de la fuente del título */
   font-weight: bold;
-  color: #333; /* Color de texto personalizado */
-  margin-bottom: 10px; /* Espacio inferior */
+  /* Negrita */
+  color: #333;
+  /* Color del título */
 }
 
-.legend-description {
-  font-size: 16px;
-  color: #666; /* Color de texto secundario */
+.interactive-card ion-card-content p {
+  font-size: 14px;
+  /* Tamaño de la fuente del contenido */
+  color: #666;
+  /* Color del texto */
+  margin-bottom: 12px;
+  /* Espacio inferior para el texto */
 }
 
-.image-gallery {
-  display: flex; /* Establece un contenedor flexible */
-  justify-content: center; /* Centra los elementos horizontalmente */
-  gap: 10px; /* Espacio entre las imágenes */
-  padding: 20px; /* Espacio interno para las imágenes */
+ion-button {
+  --border-radius: 20px;
+  /* Bordes redondeados para los botones */
+}
 
-  .image-item {
-    flex: 1; /* Ajusta el tamaño de los elementos dentro del contenedor flexible */
-    max-width: 200px; /* Ancho máximo de cada imagen */
-    overflow: hidden; /* Evita que las imágenes sobresalgan del contenedor */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para cada imagen */
-    transition: transform 0.3s ease-out; /* Transición suave al hacer hover */
+.grid-padding {
+  padding: 16px;
+  /* Añadir padding a la cuadrícula */
+}
 
-    img {
-      width: 100%; /* Ocupa el 100% del contenedor */
-      height: auto; /* Altura automática para mantener la proporción */
-      display: block; /* Asegura que las imágenes se muestren como elementos de bloque */
-    }
-
-    &:hover {
-      transform: translateY(-5px); /* Efecto de levantamiento al hacer hover */
-    }
+@media (min-width: 768px) {
+  .interactive-card {
+    margin-bottom: 24px;
+    /* Espacio inferior en pantallas grandes */
   }
 }

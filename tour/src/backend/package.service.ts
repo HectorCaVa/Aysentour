@@ -16,7 +16,7 @@ export class PackageService {
             const data = snapshot.val();
             return Object.keys(data).map(key => ({ id: key, ...data[key] }));
         } else {
-            throw new Error('No packages found');
+            throw new Error('No se encontraron paquetes');
         }
     }
 
@@ -27,7 +27,7 @@ export class PackageService {
         if (snapshot.exists()) {
             return snapshot.val();
         } else {
-            throw new Error('Package not found');
+            throw new Error('Paquete no encontrado');
         }
     }
 
@@ -36,7 +36,7 @@ export class PackageService {
         try {
             const reservationId = push(ref(db, 'reservas')).key;
             if (!reservationId) {
-                throw new Error('Error generating reservation ID');
+                throw new Error('Error generando ID de reserva');
             }
 
             await set(ref(db, 'reservas/' + reservationId), {
@@ -51,7 +51,7 @@ export class PackageService {
 
             return reservationId;
         } catch (error: any) {
-            throw new Error('Error posting reservation: ' + error.message);
+            throw new Error('Error publicando la reserva: ' + error.message);
         }
     }
 
@@ -67,7 +67,7 @@ export class PackageService {
                 .filter(reservation => reservation.username === username);
             return reservations;
         } else {
-            throw new Error('No reservations found for this user');
+            throw new Error('No se encontraron reservas para este usuario');
         }
     }
 

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/package"></ion-back-button>
-      <img src="assets/img/AT.png" alt="Logo" class="header-logo">
+      <img src="assets/img/icono.png" alt="Logo" class="header-logo">
     </ion-buttons>
     <ion-title>{{ packageDetails.name }}</ion-title>
   </ion-toolbar>
@@ -12,8 +12,9 @@
   <div class="container">
     <!-- Descripción del tour por la Carretera Austral -->
     <div class="tour-description">
-      <img src="assets/img/22.jpg" alt="Carretera Austral">
-      <p>La Carretera Austral es una ruta escénica en el sur de Chile, que atraviesa paisajes impresionantes y naturaleza virgen. ¡Conoce más sobre este destino imperdible!</p>
+      <img src="assets/img/carretera_austral.jpg" alt="Carretera Austral">
+      <p>La Carretera Austral es una ruta escénica en el sur de Chile, que atraviesa paisajes impresionantes y
+        naturaleza virgen. ¡Conoce más sobre este destino imperdible!</p>
     </div>
 
     <!-- Selección de fechas, número de personas y botón de reserva -->
@@ -21,17 +22,18 @@
       <div class="compact-date">
         <ion-item>
           <ion-label>Fecha de inicio</ion-label>
-          <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="startDate"></ion-datetime>
+          <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="startDate" min="{{ packageDetails.fechaIni }}"
+            max="{{ packageDetails.fechaTer }}" (ionChange)="updateEndDate($event)"></ion-datetime>
         </ion-item>
       </div>
-      
+
       <div class="compact-date">
         <ion-item>
           <ion-label>Fecha de fin</ion-label>
-          <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="endDate"></ion-datetime>
+          <ion-datetime display-format="DD/MM/YYYY" [(ngModel)]="endDate" [min]="minEndDate"
+            max="{{ packageDetails.fechaTer }}"></ion-datetime>
         </ion-item>
       </div>
-      
       <div class="num-persons">
         <ion-item>
           <ion-label>Seleccionar número de personas</ion-label>
@@ -42,9 +44,9 @@
           </ion-select>
         </ion-item>
       </div>
-      
+
       <div class="reserve-button">
-        <ion-button (click)="reservePackage()">Agendar</ion-button>
+        <ion-button (click)="reservePackage()" [disabled]="!startDate || !endDate || !numPersons">Agendar</ion-button>
       </div>
     </div>
 
@@ -84,10 +86,12 @@
     <!-- Información adicional sobre la Carretera Austral -->
     <div class="additional-info">
       <div class="info-content">
-        <img src="assets/img/images.jpg" alt="Carretera Austral 2">
+        <!-- <img src="assets/img/carretera_austral.jpg" alt="Carretera Austral 2"> -->
         <div class="info-text">
           <h3>Descubre la majestuosidad de la Carretera Austral</h3>
-          <p>Explora una de las rutas más impresionantes de Chile, la Carretera Austral, que te llevará a través de paisajes vírgenes y experiencias únicas. Conocida por sus montañas imponentes, lagos de color turquesa y naturaleza salvaje, este destino es perfecto para los amantes de la aventura y la tranquilidad.</p>
+          <p>Explora una de las rutas más impresionantes de Chile, la Carretera Austral, que te llevará a través de
+            paisajes vírgenes y experiencias únicas. Conocida por sus montañas imponentes, lagos de color turquesa y
+            naturaleza salvaje, este destino es perfecto para los amantes de la aventura y la tranquilidad.</p>
         </div>
       </div>
     </div>

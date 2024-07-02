@@ -1,5 +1,3 @@
-<!-- package.page.html -->
-
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Listado de Paquetes Turísticos</ion-title>
@@ -7,9 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-grid fixed>
+  <ion-grid fixed class="grid-padding">
     <ion-row>
-      <ion-col size="6" *ngFor="let package of packages">
+      <ion-col size="12" size-md="6" *ngFor="let package of packages">
         <ion-card button (click)="viewDetails(package.id)" class="interactive-card">
           <ion-card-header>
             <ion-card-title>{{ package.name }}</ion-card-title>

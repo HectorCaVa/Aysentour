@@ -17,18 +17,19 @@ export class DetailsPage implements OnInit {
   endDate: string = '';
   userName: string | null = null;
   personOptions: number[] = [];
+  minEndDate: string = '';
 
   constructor(
     private alertController: AlertController,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private packageService: PackageService,
-    private logicaLogin: LogicaLogin // Inyecta el servicio LogicaLogin
+    private logicaLogin: LogicaLogin
   ) { }
 
   ngOnInit() {
     this.userName = localStorage.getItem('username');
-    this.activatedRoute.paramMap.subscribe(params => {
+    this.activatedRoute.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
         this.packageId = id;
@@ -44,6 +45,9 @@ export class DetailsPage implements OnInit {
       try {
         this.packageDetails = await this.packageService.getPackageById(this.packageId);
         this.personOptions = Array.from({ length: this.packageDetails.cantPersonMax }, (_, i) => i + 1);
+        this.startDate = this.packageDetails.fechaIni; // Inicializar con la fecha inicial por defecto
+        this.endDate = ''; // Limpiar endDate al cargar nuevos detalles del paquete
+        this.minEndDate = this.getMinimumEndDate(); // Calcular la fecha mínima permitida para endDate
       } catch (error) {
         console.error('Error loading package details', error);
       }
@@ -54,9 +58,19 @@ export class DetailsPage implements OnInit {
 
   async reservePackage() {
     try {
+      if (!this.startDate || !this.endDate || new Date(this.startDate) >= new Date(this.endDate)) {
+        const alert = await this.alertController.create({
+          header: 'Error',
+          message: 'Por favor selecciona fechas válidas.',
+          buttons: ['OK'],
+        });
+        await alert.present();
+        return;
+      }
+
       const reservationData = {
         packageId: this.packageId,
-        username: this.logicaLogin.getAuthenticatedUsername(), // Obtener el nombre de usuario autenticado
+        username: this.logicaLogin.getAuthenticatedUsername(),
         startDate: this.startDate,
         endDate: this.endDate,
         numberOfPeople: this.numPersons,
@@ -76,9 +90,9 @@ export class DetailsPage implements OnInit {
                 this.router.navigate(['/reservation-details', this.userName]);
               });
               return false;
-            }
-          }
-        ]
+            },
+          },
+        ],
       });
 
       await alert.present();
@@ -86,10 +100,31 @@ export class DetailsPage implements OnInit {
       const alert = await this.alertController.create({
         header: 'Error',
         message: 'Hubo un error al realizar la reserva. Por favor, inténtalo de nuevo más tarde.',
-        buttons: ['OK']
+        buttons: ['OK'],
       });
 
       await alert.present();
     }
+  }
+
+  // Método para actualizar endDate cuando cambia startDate
+  updateEndDate(event: CustomEvent) {
+    const selectedDate = new Date(event.detail.value);
+    // Establecer min en endDate como el día siguiente a startDate
+    const nextDay = new Date(selectedDate);
+    nextDay.setDate(nextDay.getDate() + 1);
+    this.endDate = nextDay.toISOString(); // Ajustar el formato según sea necesario
+    this.minEndDate = this.endDate; // Actualizar la fecha mínima permitida para endDate
+  }
+
+  // Método para calcular la fecha mínima permitida para endDate
+  getMinimumEndDate(): string {
+    if (this.startDate) {
+      const start = new Date(this.startDate);
+      const nextDay = new Date(start);
+      nextDay.setDate(nextDay.getDate() + 1);
+      return nextDay.toISOString();
+    }
+    return '';
   }
 }
