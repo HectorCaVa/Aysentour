@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/inicio"></ion-back-button>
+    </ion-buttons>
     <ion-title>Rutas</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,13 +11,14 @@
   <ion-list>
     <ion-item *ngFor="let ruta of rutas" class="place-item">
       <ion-avatar slot="start">
-        <img [src]="getImagePath(ruta.nombre)" alt="Imagen de {{ ruta.nombre }}">
+        <img [src]="'assets/img/bus.png'" alt="Imagen de {{ ruta.nombre }}">
       </ion-avatar>
       <ion-label>
         <h2>{{ ruta.nombre }}</h2>
         <p>Partida: {{ ruta.partida }}</p>
         <p>Termino: {{ ruta.termino }}</p>
         <p>Tiempo aproximado: {{ ruta.tiempo }}</p>
+        <ion-button (click)="openRutaModal(ruta)">Ver Ruta Completa</ion-button>
       </ion-label>
     </ion-item>
   </ion-list>
