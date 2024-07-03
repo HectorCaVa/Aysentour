@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pagar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <form (submit)="onSubmit()">
+      <div class="row">
+        <div class="col">
+          <h3 class="title">Dirección de Facturación</h3>
+
+          <div class="inputBox">
+            <span style="color: black;">Nombre Completo :</span>
+            <input type="text" placeholder="Juan Pérez">
+          </div>
+          <div class="inputBox">
+            <span style="color: black;">Email :</span>
+            <input type="email" placeholder="ejemplo@correo.com">
+          </div>
+          <div class="inputBox">
+            <span style="color: black;">Dirección :</span>
+            <input type="text" placeholder="Calle, Ciudad, País">
+          </div>
+          <div class="inputBox">
+            <span style="color: black;">Ciudad :</span>
+            <input type="text" placeholder="Ciudad">
+          </div>
+
+          <div class="flex">
+            <div class="inputBox">
+              <span style="color: black;">Estado :</span>
+              <input type="text" placeholder="Estado">
+            </div>
+            <div class="inputBox">
+              <span style="color: black;">Código Postal :</span>
+              <input type="text" placeholder="123456">
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <h3 class="title">Pago</h3>
+
+          <div class="inputBox">
+            <span>Tarjetas Aceptadas :</span>
+            <img src="https://logodix.com/logo/601445.jpg" alt="Tarjetas Aceptadas">
+          </div>
+          <div class="inputBox">
+            <span style="color: black;">Nombre en la Tarjeta :</span>
+            <input type="text" placeholder="Juan Pérez">
+          </div>
+          <div class="inputBox">
+            <span style="color: black;">Número de Tarjeta :</span>
+            <input type="number" placeholder="1111-2222-3333-4444">
+          </div>
+          <div class="inputBox">
+            <span style="color: black;">Mes de Expiración :</span>
+            <input type="text" placeholder="Enero">
+          </div>
+
+          <div class="flex">
+            <div class="inputBox">
+              <span style="color: black;">Año de Expiración :</span>
+              <input type="number" placeholder="2024">
+            </div>
+            <div class="inputBox">
+              <span style="color: black;">CVV :</span>
+              <input type="text" placeholder="123">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ion-button expand="full" color="success" type="submit" class="submit-btn">Proceder al Pago</ion-button>
+    </form>
+  </div>
+</ion-content>

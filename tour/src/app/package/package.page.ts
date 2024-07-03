@@ -18,7 +18,6 @@ export class PackagesPage implements OnInit {
     private packageService: PackageService // Inyectamos el servicio de paquetes turísticos
   ) { }
 
-
   async ngOnInit() {
     await this.loadPackages();
   }
@@ -34,6 +33,11 @@ export class PackagesPage implements OnInit {
   // Navegar a la página de detalles
   viewDetails(packageId: string) {
     this.router.navigate(['/details', packageId]);
+  }
+
+  navigateToPagar(event: Event) {
+    event.stopPropagation(); // Detener la propagación del evento
+    this.router.navigate(['/pagar']);
   }
 
   // Agregar más métodos según sea necesario

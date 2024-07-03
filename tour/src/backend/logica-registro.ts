@@ -1,6 +1,5 @@
-
-import { getDatabase, ref, set } from 'firebase/database'; //AQUI DEBES DEFINIR LOS METODOS QUE USARAS
-import { app } from 'src/backend/firebase-config'; //ESPECIFICAR LA RUTA DE LA BASE DE DATOS
+import { getDatabase, ref, set } from 'firebase/database';
+import { app } from 'src/backend/firebase-config';
 import { AlertController } from '@ionic/angular';
 
 export class RegistroService {
@@ -16,17 +15,17 @@ export class RegistroService {
     await alert.present();
   }
 
-
-  // LAS VALIDACIONES DE SIEMPRE 
   async register(username: string, email: string, password: string, confirmPassword: string) {
-    if (username.length < 3) {
-      this.presentAlert('Error', 'El nombre de usuario debe tener al menos 3 caracteres');
+    const usernameRegex = /^[a-zA-Z0-9]+$/;
+    const passwordRegex = /^[a-zA-Z0-9!@#$%^&*()_+-=]+$/; 
+
+    if (!usernameRegex.test(username)) {
+      this.presentAlert('Error', 'El nombre de usuario no puede contener caracteres especiales');
       return;
     }
 
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
-    if (!emailRegex.test(email)) {
-      this.presentAlert('Error', 'El correo electrónico debe ser válido y tener el dominio "@gmail.com"');
+    if (!passwordRegex.test(password)) {
+      this.presentAlert('Error', 'La contraseña no cumple con los requisitos de complejidad');
       return;
     }
 
@@ -40,6 +39,12 @@ export class RegistroService {
       return;
     }
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!emailRegex.test(email)) {
+      this.presentAlert('Error', 'El correo electrónico debe ser válido y tener el dominio "@gmail.com"');
+      return;
+    }
+
     const db = getDatabase(app);
     const usernameWithoutQuotes = username.replace(/['"]/g, '');
     const userData = {
@@ -47,7 +52,7 @@ export class RegistroService {
       email: email,
       password: password
     };
-    //AQUI DEBES DEFINIR DONDE SE GUARDARA LOS DATOS /nombre de la tabla 
+
     const newUserRef = ref(db, 'users/' + usernameWithoutQuotes);
 
     set(newUserRef, userData)
