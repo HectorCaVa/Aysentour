@@ -46,7 +46,15 @@ const routes: Routes = [
     path: 'pago',
     loadChildren: () => import('./pago/pago.module').then(m => m.PagoPageModule)
 
+  },  {
+    path: 'rutas',
+    loadChildren: () => import('./rutas/rutas.module').then( m => m.RutasPageModule)
   },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+
 
 
 ];

@@ -20,7 +20,7 @@ export class LogicaLogin {
         if (userData.password === password) {
           localStorage.setItem('username', username);
           this.presentAlert('Éxito', 'Inicio de sesión exitoso');
-          this.router.navigateByUrl('/package');
+          this.router.navigateByUrl('/inicio');
         } else {
           this.presentAlert('Error', 'Contraseña incorrecta');
         }

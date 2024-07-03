@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rutas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let ruta of rutas" class="place-item">
+      <ion-avatar slot="start">
+        <img [src]="getImagePath(ruta.nombre)" alt="Imagen de {{ ruta.nombre }}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ ruta.nombre }}</h2>
+        <p>Partida: {{ ruta.partida }}</p>
+        <p>Termino: {{ ruta.termino }}</p>
+        <p>Tiempo aproximado: {{ ruta.tiempo }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
